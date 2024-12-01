@@ -61,7 +61,7 @@ public ItemType[] GunsList2 { get; set; } =
 
 [Description("снаряжения")]
 
-public ItemType[] MtfCaptain { get; set; } =
+public ItemType[] GunFRMG0 { get; set; } =
 {
             ItemType.GunFRMG0,
             ItemType.ArmorHeavy,
@@ -71,8 +71,8 @@ public ItemType[] MtfCaptain { get; set; } =
             ItemType.Ammo556x45,
             ItemType.Ammo556x45,
             ItemType.Ammo556x45
-};
-        public ItemType[] MtfSergant { get; set; } =
+};//Пулик
+public ItemType[] GunE11SR { get; set; } =
         { 
             ItemType.GunE11SR,
             ItemType.Ammo556x45,
@@ -82,8 +82,8 @@ public ItemType[] MtfCaptain { get; set; } =
             ItemType.Ammo556x45,
             ItemType.Ammo556x45,
             ItemType.Ammo556x45
-        };
-        public ItemType[] MtfPrivate { get; set; } =
+        };//эмка
+public ItemType[] GunCrossvec { get; set; } =
         {
             ItemType.GunCrossvec,
             ItemType.ArmorHeavy,
@@ -96,8 +96,8 @@ public ItemType[] MtfCaptain { get; set; } =
             ItemType.Ammo9x19,
             ItemType.Ammo9x19, 
             ItemType.Ammo9x19
-        };
-        public ItemType[] ChaosRepressor { get; set; } =
+        };//Кросвег
+public ItemType[] GunLogicer { get; set; } =
         {
             ItemType.GunLogicer,
             ItemType.ArmorHeavy,
@@ -108,27 +108,20 @@ public ItemType[] MtfCaptain { get; set; } =
             ItemType.Ammo762x39,
             ItemType.Ammo762x39,
             ItemType.Ammo762x39
-        };
-        public ItemType[] ChaosMarauder { get; set; } =
+        };//Пулик то жёлтый
+public ItemType[] GunShotgun { get; set; } =
         {
-          ItemType.GunRevolver,
 
           ItemType.GunShotgun,
           ItemType.ArmorHeavy,
-          ItemType.Ammo44cal,
-          ItemType.Ammo44cal,
-          ItemType.Ammo44cal,
-          ItemType.Ammo44cal,
-          ItemType.Ammo44cal,
-          ItemType.Ammo44cal,
           ItemType.Ammo12gauge,
           ItemType.Ammo12gauge,
           ItemType.Ammo12gauge,
           ItemType.Ammo12gauge,
           ItemType.Ammo12gauge,
           ItemType.Ammo12gauge
-        };
-        public ItemType[] ChaosRifleMan { get; set; } =
+        };//Драбовуик
+public ItemType[] GunAK { get; set; } =
         {
           ItemType.GunAK,
           ItemType.ArmorHeavy,
@@ -139,8 +132,8 @@ public ItemType[] MtfCaptain { get; set; } =
             ItemType.Ammo762x39,
             ItemType.Ammo762x39,
             ItemType.Ammo762x39
-        };
-        public ItemType[] A7 { get; set; } =
+        };//калаш
+public ItemType[] A7 { get; set; } =
         {    
             ItemType.GunA7,
             ItemType.ArmorHeavy,
@@ -151,5 +144,6 @@ public ItemType[] MtfCaptain { get; set; } =
             ItemType.Ammo762x39,
             ItemType.Ammo762x39,
             ItemType.Ammo762x39
-        };
+        };//калаш только обрезаный
+
     };

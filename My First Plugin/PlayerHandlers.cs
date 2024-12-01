@@ -41,6 +41,7 @@ namespace PeakySCPPVP.EventHaldlers
             if (!Config.IsEnabled)
                 return;
             if (Config.InitialSpawnCoordinates == Vector3.zero)
+
             {
                 Log.Warn("Координаты для начальной коробки не указаны!");
                 return;
@@ -50,9 +51,10 @@ namespace PeakySCPPVP.EventHaldlers
             ev.Player.Position = Config.InitialSpawnCoordinates;
             var coroutine = Timing.RunCoroutine(SpawnAndTeleport(ev.Player, Config));
             activeCoroutines[ev.Player] = coroutine;
+
             //Выдача карт
             Timing.CallDelayed(0.5f, () =>
-         {
+            {
 
              foreach (var item in Config.Cards)
              { 
@@ -100,24 +102,43 @@ namespace PeakySCPPVP.EventHaldlers
                         foreach (var item in Config.GunsList1)
                         {
                             ev.Player.AddItem(item);
+
+                            //int randomIndex = Random.Next(Config.Dust2Random.Count);
+                           // ev.Player.Position = Config.Dust2Random[randomIndex];
                         }
                     });
-                if (ev.Item.Type == ItemType.GunFRMG0)
-                    Timing.CallDelayed(0.3f, () =>
+            }
+            if (ev.Item.Type == ItemType.KeycardO5)
+            {
+                Timing.CallDelayed(0.3f, () =>
+                {
+                    ev.Player.ClearInventory();
+
+                });
+                foreach (var item in Config.GunsList2)
+                {
+                    ev.Player.AddItem(item);
+
+                }
+            }
+
+            if (ev.Item.Type == ItemType.GunFRMG0)
+                Timing.CallDelayed(0.3f, () =>
+                {
+                    foreach (var item in Config.GunFRMG0)
                     {
-                        foreach (var item in Config.MtfCaptain)
-                        {
-                            ev.Player.AddItem(item);
+                        ev.Player.AddItem(item);
 
-                        }
-                        int randomIndex = Random.Next(Config.Dust2Random.Count);
-                        ev.Player.Position = Config.Dust2Random[randomIndex];
+                    }
+                    int randomIndex = Random.Next(Config.Dust2Random.Count);
+                    ev.Player.Position = Config.Dust2Random[randomIndex];
 
-                    });
+                });
+
                 if (ev.Item.Type == ItemType.GunE11SR)
                     Timing.CallDelayed(0.3f, () =>
                     {
-                        foreach (var item in Config.MtfSergant)
+                        foreach (var item in Config.GunE11SR)
                         {
                             ev.Player.AddItem(item);
                             int randomIndex = Random.Next(Config.Dust2Random.Count);
@@ -128,7 +149,7 @@ namespace PeakySCPPVP.EventHaldlers
                 if (ev.Item.Type == ItemType.GunLogicer)
                     Timing.CallDelayed(0.3f, () =>
                     {
-                        foreach (var item in Config.ChaosRepressor)
+                        foreach (var item in Config.GunLogicer)
                         {
                             ev.Player.AddItem(item);
                             int randomIndex = Random.Next(Config.Dust2Random.Count);
@@ -139,7 +160,7 @@ namespace PeakySCPPVP.EventHaldlers
                 if (ev.Item.Type == ItemType.GunCrossvec)
                     Timing.CallDelayed(0.3f, () =>
                     {
-                        foreach (var item in Config.MtfPrivate)
+                        foreach (var item in Config.GunCrossvec)
                         {
                             ev.Player.AddItem(item);
                             int randomIndex = Random.Next(Config.Dust2Random.Count);
@@ -158,7 +179,7 @@ namespace PeakySCPPVP.EventHaldlers
 
                 // Добавляем игрока в список с ограничениями.
                 restrictedPlayers.Add(ev.Player);
-            }
+            
         }
 
 
