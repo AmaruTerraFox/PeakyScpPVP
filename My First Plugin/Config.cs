@@ -48,7 +48,6 @@ public class Config : IConfig
         ItemType.GunAK,
         ItemType.GunShotgun,
         ItemType.GunLogicer,
-        ItemType.GunShotgun,
         ItemType.KeycardO5
     };
     public ItemType[] GunsList2 { get; set; } =
@@ -56,7 +55,8 @@ public class Config : IConfig
      ItemType.GunFSP9,
      ItemType.GunA7,
      ItemType.GunRevolver,
-     ItemType.GunCom45
+     ItemType.GunCom45,
+     ItemType.Jailbird
     };
 
     [Description("снаряжения")]
@@ -120,7 +120,7 @@ public class Config : IConfig
           ItemType.Ammo12gauge,
           ItemType.Ammo12gauge,
           ItemType.Ammo12gauge
-        };//Драбовуик
+        };//Дробобук
     public ItemType[] GunAK { get; set; } =
             {
           ItemType.GunAK,
@@ -147,9 +147,55 @@ public class Config : IConfig
         };//калаш только обрезанный
     public ItemType[] AWP { get; set; } =
     {
-    (ItemType)999
-
+    (ItemType)999,
+            ItemType.Ammo556x45,
+            ItemType.Ammo556x45,
+            ItemType.Ammo556x45,
+            ItemType.Ammo556x45,
+            ItemType.Ammo556x45,
+            ItemType.Ammo556x45,
+            ItemType.Ammo556x45
     };
-
-} 
+    public ItemType[] GunFSP9 =
+    {
+        ItemType.GunFSP9,
+        ItemType.Ammo9x19,
+        ItemType.Ammo9x19,
+        ItemType.Ammo9x19,
+        ItemType.Ammo9x19,
+        ItemType.Ammo9x19,
+        ItemType.Ammo9x19,
+        ItemType.Ammo9x19,
+        ItemType.Ammo9x19,
+        ItemType.Ammo9x19
+    };
+    public ItemType[] GunCom45 =
+{
+        ItemType.GunCom45,
+        ItemType.ArmorHeavy,
+        ItemType.Ammo9x19,
+        ItemType.Ammo9x19,
+        ItemType.Ammo9x19,
+        ItemType.Ammo9x19,
+        ItemType.Ammo9x19,
+        ItemType.Ammo9x19,
+        ItemType.Ammo9x19,
+        ItemType.Ammo9x19,
+        ItemType.Ammo9x19
+    };
+    public ItemType[] Jailbird =
+{
+        ItemType.Jailbird,
+        ItemType.ArmorHeavy,
+        ItemType.Ammo9x19,
+        ItemType.Ammo9x19,
+        ItemType.Ammo9x19,
+        ItemType.Ammo9x19,
+        ItemType.Ammo9x19,
+        ItemType.Ammo9x19,
+        ItemType.Ammo9x19,
+        ItemType.Ammo9x19,
+        ItemType.Ammo9x19
+    };
+}
 

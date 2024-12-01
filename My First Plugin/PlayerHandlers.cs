@@ -146,17 +146,7 @@ namespace PeakySCPPVP.EventHaldlers
                         }
 
                     });
-                if (ev.Item.Type == ItemType.GunLogicer)
-                    Timing.CallDelayed(0.3f, () =>
-                    {
-                        foreach (var item in Config.GunLogicer)
-                        {
-                            ev.Player.AddItem(item);
-                            int randomIndex = Random.Next(Config.Dust2Random.Count);
-                            ev.Player.Position = Config.Dust2Random[randomIndex];
-                        }
 
-                    });
                 if (ev.Item.Type == ItemType.GunCrossvec)
                     Timing.CallDelayed(0.3f, () =>
                     {
@@ -169,8 +159,85 @@ namespace PeakySCPPVP.EventHaldlers
 
                     });
 
+                if (ev.Item.Type == ItemType.GunLogicer)
+                    Timing.CallDelayed(0.3f, () =>
+                    {
+                        foreach (var item in Config.GunLogicer)
+                        {
+                            ev.Player.AddItem(item);
+                            int randomIndex = Random.Next(Config.Dust2Random.Count);
+                            ev.Player.Position = Config.Dust2Random[randomIndex];
+                        }
 
-                if (activeCoroutines.TryGetValue(ev.Player, out var handle))
+                    });
+            if (ev.Item.Type == ItemType.GunShotgun)
+                Timing.CallDelayed(0.3f, () =>
+                {
+                    foreach (var item in Config.GunShotgun)
+                    {
+                        ev.Player.AddItem(item);
+                    }
+                    int randomIndex = Random.Next(Config.Dust2Random.Count);
+                    ev.Player.Position = Config.Dust2Random[randomIndex];
+                });
+
+            if (ev.Item.Type == ItemType.GunAK)
+                Timing.CallDelayed(0.3f, () =>
+                {
+                    foreach (var item in Config.GunAK)
+                    {
+                        ev.Player.AddItem(item);
+                    }
+                    int randomIndex = Random.Next(Config.Dust2Random.Count);
+                    ev.Player.Position = Config.Dust2Random[randomIndex];
+                });
+
+            if (ev.Item.Type == ItemType.GunFSP9)
+                Timing.CallDelayed(0.3f, () =>
+                {
+                    foreach (var item in Config.GunFSP9)
+                    {
+                        ev.Player.AddItem(item);
+                    }
+                    int randomIndex = Random.Next(Config.Dust2Random.Count);
+                    ev.Player.Position = Config.Dust2Random[randomIndex];
+                });
+
+            if (ev.Item.Type == ItemType.GunA7)
+                Timing.CallDelayed(0.3f, () =>
+                {
+                    foreach (var item in Config.GunCom45)
+                    {
+                        ev.Player.AddItem(item);
+                    }
+                    int randomIndex = Random.Next(Config.Dust2Random.Count);
+                    ev.Player.Position = Config.Dust2Random[randomIndex];
+                });
+
+            if (ev.Item.Type == ItemType.GunCom45)
+                Timing.CallDelayed(0.3f, () =>
+                {
+                    foreach (var item in Config.GunCom45)
+                    {
+                        ev.Player.AddItem(item);
+                    }
+                    int randomIndex = Random.Next(Config.Dust2Random.Count);
+                    ev.Player.Position = Config.Dust2Random[randomIndex];
+                });
+
+            if (ev.Item.Type == ItemType.Jailbird)
+                Timing.CallDelayed(0.3f, () =>
+                {
+                    foreach (var item in Config.Jailbird)
+                    {
+                        ev.Player.AddItem(item);
+                    }
+                    int randomIndex = Random.Next(Config.Dust2Random.Count);
+                    ev.Player.Position = Config.Dust2Random[randomIndex];
+                });
+
+
+            if (activeCoroutines.TryGetValue(ev.Player, out var handle))
                 {
                     Timing.KillCoroutines(handle);
                     activeCoroutines.Remove(ev.Player);
