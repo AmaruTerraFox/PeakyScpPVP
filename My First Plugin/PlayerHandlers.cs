@@ -56,11 +56,11 @@ namespace PeakySCPPVP.EventHaldlers
             Timing.CallDelayed(0.5f, () =>
             {
 
-             foreach (var item in Config.Cards)
+             foreach (var item in Config.AWP)
              { 
                    ev.Player.AddItem(item);
              }
-         });
+            });
         }  
 
         
@@ -181,7 +181,7 @@ namespace PeakySCPPVP.EventHaldlers
                 restrictedPlayers.Add(ev.Player);
             
         }
-
+        
 
         public void OnPlayerDied(DiedEventArgs ev)
         {

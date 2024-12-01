@@ -14,8 +14,8 @@ namespace PeakySCPPVP.AWP
     [CustomItem(ItemType.GunE11SR)]
     public class AWP : CustomWeapon
     {
-        public override ItemType Type { get; set; } = ItemType.GunShotgun;
-        public override uint Id { get; set; } = 1;
+        public override ItemType Type { get; set; } = ItemType.GunE11SR;
+        public override uint Id { get; set; } = 999;
         public override string Name { get; set; } = "AWP";
         public override string Description { get; set; } = "AWP- 1 пуля, 1 труп";
         public override float Weight { get; set; } = 3.25f;

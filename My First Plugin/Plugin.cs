@@ -23,7 +23,7 @@ namespace PeakySCPPVP
         public override string Name => "PVP Plugin";
         public override string Prefix => "PVP Plugin";
         public override string Author => "Amaru";
-        public override Version Version => new Version(0, 0, 1);
+        public override Version Version => new Version(0,1);
         public override PluginPriority Priority => PluginPriority.Medium;
         public override void OnEnabled()
         {

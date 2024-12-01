@@ -12,18 +12,18 @@ using Exiled.API.Features;
 using Exiled.CustomItems.API;
 using Exiled.CustomItems.API.Features;
 using PeakySCPPVP.AWP;
-    public class Config : IConfig
-    {
-        [Description("Плагин Включён? \n True-включён \n False-выключен")]
-        public bool IsEnabled { get; set; } = true;
-        [Description("Не трогай, всё равно не работает :)")]
-        public bool Debug { get; set; } = false;
+public class Config : IConfig
+{
+    [Description("Плагин Включён? \n True-включён \n False-выключен")]
+    public bool IsEnabled { get; set; } = true;
+    [Description("Не трогай, всё равно не работает :)")]
+    public bool Debug { get; set; } = false;
 
-        [Description("Первая координата коробки")]
-        public Vector3 InitialSpawnCoordinates { get; set; } = new Vector3(0f, 0f, 0f);
+    [Description("Первая координата коробки")]
+    public Vector3 InitialSpawnCoordinates { get; set; } = new Vector3(0f, 0f, 0f);
 
-        [Description("Лист координат куда будут телепортироваться игроки")]
-        public List<Vector3> Dust2Random { get; set; } = new List<Vector3>
+    [Description("Лист координат куда будут телепортироваться игроки")]
+    public List<Vector3> Dust2Random { get; set; } = new List<Vector3>
         {
         new Vector3(0f, 0f, 0f),
         new Vector3(0f, 0f, 0f),
@@ -51,18 +51,18 @@ using PeakySCPPVP.AWP;
         ItemType.GunShotgun,
         ItemType.KeycardO5
     };
-public ItemType[] GunsList2 { get; set; } =
-    {
+    public ItemType[] GunsList2 { get; set; } =
+        {
      ItemType.GunFSP9,
      ItemType.GunA7,
      ItemType.GunRevolver,
      ItemType.GunCom45
     };
 
-[Description("снаряжения")]
+    [Description("снаряжения")]
 
-public ItemType[] GunFRMG0 { get; set; } =
-{
+    public ItemType[] GunFRMG0 { get; set; } =
+    {
             ItemType.GunFRMG0,
             ItemType.ArmorHeavy,
             ItemType.Ammo556x45,
@@ -72,8 +72,8 @@ public ItemType[] GunFRMG0 { get; set; } =
             ItemType.Ammo556x45,
             ItemType.Ammo556x45
 };//Пулик
-public ItemType[] GunE11SR { get; set; } =
-        { 
+    public ItemType[] GunE11SR { get; set; } =
+            {
             ItemType.GunE11SR,
             ItemType.Ammo556x45,
             ItemType.Ammo556x45,
@@ -83,8 +83,8 @@ public ItemType[] GunE11SR { get; set; } =
             ItemType.Ammo556x45,
             ItemType.Ammo556x45
         };//эмка
-public ItemType[] GunCrossvec { get; set; } =
-        {
+    public ItemType[] GunCrossvec { get; set; } =
+            {
             ItemType.GunCrossvec,
             ItemType.ArmorHeavy,
             ItemType.Ammo9x19,
@@ -94,11 +94,11 @@ public ItemType[] GunCrossvec { get; set; } =
             ItemType.Ammo9x19,
             ItemType.Ammo9x19,
             ItemType.Ammo9x19,
-            ItemType.Ammo9x19, 
+            ItemType.Ammo9x19,
             ItemType.Ammo9x19
         };//Кросвег
-public ItemType[] GunLogicer { get; set; } =
-        {
+    public ItemType[] GunLogicer { get; set; } =
+            {
             ItemType.GunLogicer,
             ItemType.ArmorHeavy,
             ItemType.Ammo762x39,
@@ -109,8 +109,8 @@ public ItemType[] GunLogicer { get; set; } =
             ItemType.Ammo762x39,
             ItemType.Ammo762x39
         };//Пулик то жёлтый
-public ItemType[] GunShotgun { get; set; } =
-        {
+    public ItemType[] GunShotgun { get; set; } =
+            {
 
           ItemType.GunShotgun,
           ItemType.ArmorHeavy,
@@ -121,8 +121,8 @@ public ItemType[] GunShotgun { get; set; } =
           ItemType.Ammo12gauge,
           ItemType.Ammo12gauge
         };//Драбовуик
-public ItemType[] GunAK { get; set; } =
-        {
+    public ItemType[] GunAK { get; set; } =
+            {
           ItemType.GunAK,
           ItemType.ArmorHeavy,
             ItemType.Ammo762x39,
@@ -133,8 +133,8 @@ public ItemType[] GunAK { get; set; } =
             ItemType.Ammo762x39,
             ItemType.Ammo762x39
         };//калаш
-public ItemType[] A7 { get; set; } =
-        {    
+    public ItemType[] A7 { get; set; } =
+            {
             ItemType.GunA7,
             ItemType.ArmorHeavy,
             ItemType.Ammo762x39,
@@ -144,6 +144,12 @@ public ItemType[] A7 { get; set; } =
             ItemType.Ammo762x39,
             ItemType.Ammo762x39,
             ItemType.Ammo762x39
-        };//калаш только обрезаный
+        };//калаш только обрезанный
+    public ItemType[] AWP { get; set; } =
+    {
+    (ItemType)999
 
     };
+
+} 
+
