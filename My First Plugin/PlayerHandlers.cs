@@ -47,7 +47,7 @@ namespace PeakySCPPVP.EventHaldlers
                 return;
             }
 
-            // TP to korobka
+            // TP to korobka and start korutina
             ev.Player.Position = Config.InitialSpawnCoordinates;
             var coroutine = Timing.RunCoroutine(SpawnAndTeleport(ev.Player, Config));
             activeCoroutines[ev.Player] = coroutine;
@@ -56,7 +56,7 @@ namespace PeakySCPPVP.EventHaldlers
             Timing.CallDelayed(0.5f, () =>
             {
 
-             foreach (var item in Config.AWP)
+             foreach (var item in Config.Cards)
              { 
                    ev.Player.AddItem(item);
              }
@@ -95,6 +95,7 @@ namespace PeakySCPPVP.EventHaldlers
                 Timing.CallDelayed(0.5f, () =>
                 {
                     ev.Player.ClearInventory();
+                    ev.Player.Position = Config.InitialSpawnCoordinates;
 
                 });
                 Timing.CallDelayed(0.5f, () =>
@@ -102,11 +103,77 @@ namespace PeakySCPPVP.EventHaldlers
                         foreach (var item in Config.GunsList1)
                         {
                             ev.Player.AddItem(item);
-
-                            //int randomIndex = Random.Next(Config.Dust2Random.Count);
-                           // ev.Player.Position = Config.Dust2Random[randomIndex];
                         }
                     });
+            }
+            if (ev.Item.Type == ItemType.KeycardChaosInsurgency)
+            {
+                ev.Player.Role.Set(RoleTypeId.ChaosRepressor, SpawnReason.None);
+                Timing.CallDelayed(0.5f, () =>
+                {
+                    ev.Player.ClearInventory();
+                    ev.Player.Position = Config.InitialSpawnCoordinates;
+
+                });
+                Timing.CallDelayed(0.5f, () =>
+                {
+                    foreach (var item in Config.GunsList1)
+                    {
+                        ev.Player.AddItem(item);
+                    }
+                });
+            }
+            if (ev.Item.Type == ItemType.KeycardFacilityManager)
+            {
+                ev.Player.Role.Set(RoleTypeId.Tutorial, SpawnReason.None);
+                Timing.CallDelayed(0.5f, () =>
+                {
+                    ev.Player.ClearInventory();
+                    ev.Player.Position = Config.InitialSpawnCoordinates;
+
+                });
+                Timing.CallDelayed(0.5f, () =>
+                {
+                    foreach (var item in Config.GunsList1)
+                    {
+                        ev.Player.AddItem(item);
+                    }
+                });
+            }
+            if (ev.Item.Type == ItemType.KeycardGuard)
+            {
+                ev.Player.Role.Set(RoleTypeId.FacilityGuard, SpawnReason.None);
+                Timing.CallDelayed(0.5f, () =>
+                {
+                    ev.Player.ClearInventory();
+                    ev.Player.Position = Config.InitialSpawnCoordinates;
+
+                });
+                Timing.CallDelayed(0.5f, () =>
+                {
+                    foreach (var item in Config.GunsList1)
+                    {
+                        ev.Player.AddItem(item);
+                    }
+                });
+            }
+            if (ev.Item.Type == ItemType.KeycardJanitor)
+            {
+                ev.Player.Role.Set(RoleTypeId.ClassD, SpawnReason.None);
+                Timing.CallDelayed(0.5f, () =>
+                {
+                    ev.Player.ClearInventory();
+                    ev.Player.Position = Config.InitialSpawnCoordinates;
+
+                });
+
+                Timing.CallDelayed(0.5f, () =>
+                {
+                    foreach (var item in Config.GunsList1)
+                    {
+                        ev.Player.AddItem(item);
+                    }
+                });
             }
             if (ev.Item.Type == ItemType.KeycardO5)
             {

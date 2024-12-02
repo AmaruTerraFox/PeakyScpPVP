@@ -45,6 +45,7 @@ namespace PeakySCPPVP
             Exiled.Events.Handlers.Player.Verified -= new PlayerHandlers().OnPlayerVerified;
             Exiled.Events.Handlers.Player.DroppingItem -= new PlayerHandlers().OnDroppingItem;
             Instance = null;
+            CustomItem.UnregisterItems();
             Log.Info("Основной плагин PeakySCP PVP выключен!");
             base.OnDisabled();
         }

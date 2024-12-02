@@ -19,17 +19,17 @@ public class Config : IConfig
     [Description("Не трогай, всё равно не работает :)")]
     public bool Debug { get; set; } = false;
 
-    [Description("Первая координата коробки")]
+    [Description("Башня куда тепается игрок когда заходит на сервер")]
     public Vector3 InitialSpawnCoordinates { get; set; } = new Vector3(0f, 0f, 0f);
 
-    [Description("Лист координат куда будут телепортироваться игроки")]
+    [Description("Лист координат карты Dust2, вписываешь сколько хочешь координат, они будут выбираться радомно")]
     public List<Vector3> Dust2Random { get; set; } = new List<Vector3>
         {
         new Vector3(0f, 0f, 0f),
         new Vector3(0f, 0f, 0f),
         new Vector3(0f, 0f, 0f),
         };
-    [Description("Карты к которым привязаны классы ")]
+    [Description("Карты к которым привязаны классы, выбрасываешь карту капитнана то становишься капитаном, и т.д.\nКарты уборщика это карта Д-класса.Крассная карта для обучения ")]
     public ItemType[] Cards { get; set; } =
        {
             ItemType.KeycardMTFCaptain, //Карта капитана
@@ -60,7 +60,6 @@ public class Config : IConfig
     };
 
     [Description("снаряжения")]
-
     public ItemType[] GunFRMG0 { get; set; } =
     {
             ItemType.GunFRMG0,
@@ -147,7 +146,7 @@ public class Config : IConfig
         };//калаш только обрезанный
     public ItemType[] AWP { get; set; } =
     {
-    (ItemType)999,
+            (ItemType)999,
             ItemType.Ammo556x45,
             ItemType.Ammo556x45,
             ItemType.Ammo556x45,
@@ -155,7 +154,8 @@ public class Config : IConfig
             ItemType.Ammo556x45,
             ItemType.Ammo556x45,
             ItemType.Ammo556x45
-    };
+    };//авп
+
     public ItemType[] GunFSP9 =
     {
         ItemType.GunFSP9,
@@ -168,7 +168,8 @@ public class Config : IConfig
         ItemType.Ammo9x19,
         ItemType.Ammo9x19,
         ItemType.Ammo9x19
-    };
+    };//Оружее пятёрочки
+
     public ItemType[] GunCom45 =
 {
         ItemType.GunCom45,
@@ -182,7 +183,8 @@ public class Config : IConfig
         ItemType.Ammo9x19,
         ItemType.Ammo9x19,
         ItemType.Ammo9x19
-    };
+    };//ьбььббббыбыь
+
     public ItemType[] Jailbird =
 {
         ItemType.Jailbird,
@@ -196,6 +198,18 @@ public class Config : IConfig
         ItemType.Ammo9x19,
         ItemType.Ammo9x19,
         ItemType.Ammo9x19
+    };//пиздец, что это?
+
+    public ItemType[] GunRevolver =
+    {
+        ItemType.GunRevolver,
+        ItemType.ArmorHeavy,
+        ItemType.Ammo44cal,
+        ItemType.Ammo44cal,
+        ItemType.Ammo44cal,
+        ItemType.Ammo44cal,
+        ItemType.Ammo44cal,
+        ItemType.Ammo44cal,
     };
 }
 
