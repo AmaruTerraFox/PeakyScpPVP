@@ -52,6 +52,7 @@ public class Config : IConfig
     };
     public ItemType[] GunsList2 { get; set; } =
         {
+     (ItemType)999,
      ItemType.GunFSP9,
      ItemType.GunA7,
      ItemType.GunRevolver,
@@ -189,15 +190,6 @@ public class Config : IConfig
 {
         ItemType.Jailbird,
         ItemType.ArmorHeavy,
-        ItemType.Ammo9x19,
-        ItemType.Ammo9x19,
-        ItemType.Ammo9x19,
-        ItemType.Ammo9x19,
-        ItemType.Ammo9x19,
-        ItemType.Ammo9x19,
-        ItemType.Ammo9x19,
-        ItemType.Ammo9x19,
-        ItemType.Ammo9x19
     };//пиздец, что это?
 
     public ItemType[] GunRevolver =

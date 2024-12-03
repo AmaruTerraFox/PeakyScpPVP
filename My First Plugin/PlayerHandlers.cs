@@ -89,6 +89,11 @@ namespace PeakySCPPVP.EventHaldlers
         }
         public void OnDroppingItem(DroppingItemEventArgs ev)
         {
+            if (restrictedPlayers.Contains(ev.Player))
+            {
+                ev.IsAllowed = false;
+                return;
+            }
             if (ev.Item.Type == ItemType.KeycardMTFCaptain)
             {
                 ev.Player.Role.Set(RoleTypeId.NtfCaptain, SpawnReason.None);
@@ -182,12 +187,20 @@ namespace PeakySCPPVP.EventHaldlers
                     ev.Player.ClearInventory();
 
                 });
-                foreach (var item in Config.GunsList2)
+                Timing.CallDelayed(0.5f, () =>
                 {
-                    ev.Player.AddItem(item);
+                    foreach (var item in Config.GunsList2)
+                    {
+                        ev.Player.AddItem(item);
 
-                }
+                    }
+                });
             }
+            //###########################################
+            //###########################################
+            //####               Пушки             ######
+            //###########################################
+            //###########################################
 
             if (ev.Item.Type == ItemType.GunFRMG0)
                 Timing.CallDelayed(0.3f, () =>
@@ -199,6 +212,7 @@ namespace PeakySCPPVP.EventHaldlers
                     }
                     int randomIndex = Random.Next(Config.Dust2Random.Count);
                     ev.Player.Position = Config.Dust2Random[randomIndex];
+                    restrictedPlayers.Add(ev.Player);
 
                 });
 
@@ -210,6 +224,7 @@ namespace PeakySCPPVP.EventHaldlers
                             ev.Player.AddItem(item);
                             int randomIndex = Random.Next(Config.Dust2Random.Count);
                             ev.Player.Position = Config.Dust2Random[randomIndex];
+                            restrictedPlayers.Add(ev.Player);
                         }
 
                     });
@@ -222,6 +237,7 @@ namespace PeakySCPPVP.EventHaldlers
                             ev.Player.AddItem(item);
                             int randomIndex = Random.Next(Config.Dust2Random.Count);
                             ev.Player.Position = Config.Dust2Random[randomIndex];
+                            restrictedPlayers.Add(ev.Player);
                         }
 
                     });
@@ -234,6 +250,7 @@ namespace PeakySCPPVP.EventHaldlers
                             ev.Player.AddItem(item);
                             int randomIndex = Random.Next(Config.Dust2Random.Count);
                             ev.Player.Position = Config.Dust2Random[randomIndex];
+                            restrictedPlayers.Add(ev.Player);
                         }
 
                     });
@@ -246,6 +263,7 @@ namespace PeakySCPPVP.EventHaldlers
                     }
                     int randomIndex = Random.Next(Config.Dust2Random.Count);
                     ev.Player.Position = Config.Dust2Random[randomIndex];
+                    restrictedPlayers.Add(ev.Player);
                 });
 
             if (ev.Item.Type == ItemType.GunAK)
@@ -257,6 +275,7 @@ namespace PeakySCPPVP.EventHaldlers
                     }
                     int randomIndex = Random.Next(Config.Dust2Random.Count);
                     ev.Player.Position = Config.Dust2Random[randomIndex];
+                    restrictedPlayers.Add(ev.Player);
                 });
 
             if (ev.Item.Type == ItemType.GunFSP9)
@@ -268,6 +287,7 @@ namespace PeakySCPPVP.EventHaldlers
                     }
                     int randomIndex = Random.Next(Config.Dust2Random.Count);
                     ev.Player.Position = Config.Dust2Random[randomIndex];
+                    restrictedPlayers.Add(ev.Player);
                 });
 
             if (ev.Item.Type == ItemType.GunA7)
@@ -279,6 +299,7 @@ namespace PeakySCPPVP.EventHaldlers
                     }
                     int randomIndex = Random.Next(Config.Dust2Random.Count);
                     ev.Player.Position = Config.Dust2Random[randomIndex];
+                    restrictedPlayers.Add(ev.Player);
                 });
 
             if (ev.Item.Type == ItemType.GunCom45)
@@ -290,6 +311,7 @@ namespace PeakySCPPVP.EventHaldlers
                     }
                     int randomIndex = Random.Next(Config.Dust2Random.Count);
                     ev.Player.Position = Config.Dust2Random[randomIndex];
+                    restrictedPlayers.Add(ev.Player);
                 });
 
             if (ev.Item.Type == ItemType.Jailbird)
@@ -301,6 +323,7 @@ namespace PeakySCPPVP.EventHaldlers
                     }
                     int randomIndex = Random.Next(Config.Dust2Random.Count);
                     ev.Player.Position = Config.Dust2Random[randomIndex];
+                    restrictedPlayers.Add(ev.Player);
                 });
 
 
@@ -309,10 +332,6 @@ namespace PeakySCPPVP.EventHaldlers
                     Timing.KillCoroutines(handle);
                     activeCoroutines.Remove(ev.Player);
                 }
-
-
-                // Добавляем игрока в список с ограничениями.
-                restrictedPlayers.Add(ev.Player);
             
         }
         

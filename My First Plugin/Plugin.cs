@@ -23,10 +23,11 @@ namespace PeakySCPPVP
         public override string Name => "PVP Plugin";
         public override string Prefix => "PVP Plugin";
         public override string Author => "Amaru";
-        public override Version Version => new Version(0,1);
+        public override Version Version => new Version(0, 5, 0);
         public override PluginPriority Priority => PluginPriority.Medium;
         public override void OnEnabled()
         {
+            Instance = this;
             Exiled.Events.Handlers.Player.Verified += new PlayerHandlers().OnPlayerVerified;
             Exiled.Events.Handlers.Player.DroppingItem += new PlayerHandlers().OnDroppingItem;
             // Регистрируем кастомное оружие AWP
@@ -36,15 +37,14 @@ namespace PeakySCPPVP
             Log.Info("-----------------------");
             Log.Info("PVP Plugin включён");
             Log.Info("-----------------------");
-            Instance = this;
             base.OnEnabled();
 
         }
         public override void OnDisabled()
         {
+            Instance = null;
             Exiled.Events.Handlers.Player.Verified -= new PlayerHandlers().OnPlayerVerified;
             Exiled.Events.Handlers.Player.DroppingItem -= new PlayerHandlers().OnDroppingItem;
-            Instance = null;
             CustomItem.UnregisterItems();
             Log.Info("Основной плагин PeakySCP PVP выключен!");
             base.OnDisabled();
