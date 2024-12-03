@@ -36,6 +36,7 @@ namespace PeakySCPPVP.EventHaldlers
                 return;
             }
             ev.Player.Role.Set(RoleTypeId.Tutorial, SpawnReason.None);
+            ev.Player.Broadcast(10, Plugin.Instance.Config.OnPlayerVerifiedMessage);
             ev.Player.IsGodModeEnabled = true;
 
             if (!Config.IsEnabled)
@@ -49,6 +50,7 @@ namespace PeakySCPPVP.EventHaldlers
 
             // TP to korobka and start korutina
             ev.Player.Position = Config.InitialSpawnCoordinates;
+
             var coroutine = Timing.RunCoroutine(SpawnAndTeleport(ev.Player, Config));
             activeCoroutines[ev.Player] = coroutine;
 
@@ -85,7 +87,7 @@ namespace PeakySCPPVP.EventHaldlers
 
             player.Position = targetPosition;
 
-            player.ShowHint("Сражайтесь!", 5f);
+            player.ShowHint(Plugin.Instance.Config.HintMessage, 5f);
         }
         public void OnDroppingItem(DroppingItemEventArgs ev)
         {
@@ -101,6 +103,9 @@ namespace PeakySCPPVP.EventHaldlers
                 {
                     ev.Player.ClearInventory();
                     ev.Player.Position = Config.InitialSpawnCoordinates;
+                    ev.Player.Broadcast(5, "Выброси то оружее которое хочешь получить\n Чёрная карта для 2 списка");
+                    ev.Player.IsGodModeEnabled = false;
+
 
                 });
                 Timing.CallDelayed(0.5f, () =>
@@ -118,7 +123,8 @@ namespace PeakySCPPVP.EventHaldlers
                 {
                     ev.Player.ClearInventory();
                     ev.Player.Position = Config.InitialSpawnCoordinates;
-
+                    ev.Player.Broadcast(5, "Выброси то оружее которое хочешь получить\nЧёрная карта для 2 списка");
+                    ev.Player.IsGodModeEnabled = false;
                 });
                 Timing.CallDelayed(0.5f, () =>
                 {
@@ -135,7 +141,8 @@ namespace PeakySCPPVP.EventHaldlers
                 {
                     ev.Player.ClearInventory();
                     ev.Player.Position = Config.InitialSpawnCoordinates;
-
+                    ev.Player.Broadcast(5, "Выброси то оружее которое хочешь получить\nЧёрная карта для 2 списка");
+                    ev.Player.IsGodModeEnabled = false;
                 });
                 Timing.CallDelayed(0.5f, () =>
                 {
@@ -152,7 +159,8 @@ namespace PeakySCPPVP.EventHaldlers
                 {
                     ev.Player.ClearInventory();
                     ev.Player.Position = Config.InitialSpawnCoordinates;
-
+                    ev.Player.Broadcast(5, "Выброси то оружее которое хочешь получить\nЧёрная карта для 2 списка");
+                    ev.Player.IsGodModeEnabled = false;
                 });
                 Timing.CallDelayed(0.5f, () =>
                 {
@@ -169,7 +177,8 @@ namespace PeakySCPPVP.EventHaldlers
                 {
                     ev.Player.ClearInventory();
                     ev.Player.Position = Config.InitialSpawnCoordinates;
-
+                    ev.Player.Broadcast(5, "Выброси то оружее которое хочешь получить\nЧёрная карта для 2 списка");
+                    ev.Player.IsGodModeEnabled = false;
                 });
 
                 Timing.CallDelayed(0.5f, () =>
@@ -213,7 +222,7 @@ namespace PeakySCPPVP.EventHaldlers
                     int randomIndex = Random.Next(Config.Dust2Random.Count);
                     ev.Player.Position = Config.Dust2Random[randomIndex];
                     restrictedPlayers.Add(ev.Player);
-
+                    ev.Player.ShowHint(Plugin.Instance.Config.HintMessage, 5f);
                 });
 
                 if (ev.Item.Type == ItemType.GunE11SR)
@@ -225,6 +234,8 @@ namespace PeakySCPPVP.EventHaldlers
                             int randomIndex = Random.Next(Config.Dust2Random.Count);
                             ev.Player.Position = Config.Dust2Random[randomIndex];
                             restrictedPlayers.Add(ev.Player);
+                            ev.Player.ShowHint(Plugin.Instance.Config.HintMessage, 5f);
+
                         }
 
                     });
@@ -238,6 +249,8 @@ namespace PeakySCPPVP.EventHaldlers
                             int randomIndex = Random.Next(Config.Dust2Random.Count);
                             ev.Player.Position = Config.Dust2Random[randomIndex];
                             restrictedPlayers.Add(ev.Player);
+                            ev.Player.ShowHint(Plugin.Instance.Config.HintMessage, 5f);
+
                         }
 
                     });
@@ -251,6 +264,8 @@ namespace PeakySCPPVP.EventHaldlers
                             int randomIndex = Random.Next(Config.Dust2Random.Count);
                             ev.Player.Position = Config.Dust2Random[randomIndex];
                             restrictedPlayers.Add(ev.Player);
+                            ev.Player.ShowHint(Plugin.Instance.Config.HintMessage, 5f);
+
                         }
 
                     });
@@ -264,6 +279,8 @@ namespace PeakySCPPVP.EventHaldlers
                     int randomIndex = Random.Next(Config.Dust2Random.Count);
                     ev.Player.Position = Config.Dust2Random[randomIndex];
                     restrictedPlayers.Add(ev.Player);
+                    ev.Player.ShowHint(Plugin.Instance.Config.HintMessage, 5f);
+
                 });
 
             if (ev.Item.Type == ItemType.GunAK)
@@ -276,6 +293,8 @@ namespace PeakySCPPVP.EventHaldlers
                     int randomIndex = Random.Next(Config.Dust2Random.Count);
                     ev.Player.Position = Config.Dust2Random[randomIndex];
                     restrictedPlayers.Add(ev.Player);
+                    ev.Player.ShowHint(Plugin.Instance.Config.HintMessage, 5f);
+
                 });
 
             if (ev.Item.Type == ItemType.GunFSP9)
@@ -288,6 +307,8 @@ namespace PeakySCPPVP.EventHaldlers
                     int randomIndex = Random.Next(Config.Dust2Random.Count);
                     ev.Player.Position = Config.Dust2Random[randomIndex];
                     restrictedPlayers.Add(ev.Player);
+                    ev.Player.ShowHint(Plugin.Instance.Config.HintMessage, 5f);
+
                 });
 
             if (ev.Item.Type == ItemType.GunA7)
@@ -300,6 +321,8 @@ namespace PeakySCPPVP.EventHaldlers
                     int randomIndex = Random.Next(Config.Dust2Random.Count);
                     ev.Player.Position = Config.Dust2Random[randomIndex];
                     restrictedPlayers.Add(ev.Player);
+                    ev.Player.ShowHint(Plugin.Instance.Config.HintMessage, 5f);
+
                 });
 
             if (ev.Item.Type == ItemType.GunCom45)
@@ -312,6 +335,8 @@ namespace PeakySCPPVP.EventHaldlers
                     int randomIndex = Random.Next(Config.Dust2Random.Count);
                     ev.Player.Position = Config.Dust2Random[randomIndex];
                     restrictedPlayers.Add(ev.Player);
+                    ev.Player.ShowHint(Plugin.Instance.Config.HintMessage, 5f);
+
                 });
 
             if (ev.Item.Type == ItemType.Jailbird)
@@ -324,6 +349,9 @@ namespace PeakySCPPVP.EventHaldlers
                     int randomIndex = Random.Next(Config.Dust2Random.Count);
                     ev.Player.Position = Config.Dust2Random[randomIndex];
                     restrictedPlayers.Add(ev.Player);
+                    ev.Player.ShowHint(Plugin.Instance.Config.HintMessage, 5f);
+
+
                 });
 
 
