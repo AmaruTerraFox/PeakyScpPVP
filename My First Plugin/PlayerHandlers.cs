@@ -99,267 +99,297 @@ namespace PeakySCPPVP.EventHaldlers
             if (ev.Item.Type == ItemType.KeycardMTFCaptain)
             {
                 ev.Player.Role.Set(RoleTypeId.NtfCaptain, SpawnReason.None);
-                Timing.CallDelayed(0.5f, () =>
+                Timing.CallDelayed(0.3f, () =>
                 {
                     ev.Player.ClearInventory();
                     ev.Player.Position = Config.InitialSpawnCoordinates;
-                    ev.Player.Broadcast(5, "Выброси то оружее которое хочешь получить\n Чёрная карта для 2 списка");
-                    ev.Player.IsGodModeEnabled = false;
-
-
+                    ev.Player.ClearBroadcasts();
                 });
                 Timing.CallDelayed(0.5f, () =>
+                {
+
+                    ev.Player.Broadcast(5, "Выброси то оружее которое хочешь получить\n Чёрная карта для 2 списка");
+                    ev.Player.IsGodModeEnabled = false;
+                });
+
+                Timing.CallDelayed(0.5f, () =>
+                {
+                    foreach (var item in Config.GunsList1)
                     {
-                        foreach (var item in Config.GunsList1)
-                        {
-                            ev.Player.AddItem(item);
-                        }
-                    });
+                        ev.Player.AddItem(item);
+                    }
+                });
             }
             if (ev.Item.Type == ItemType.KeycardChaosInsurgency)
             {
                 ev.Player.Role.Set(RoleTypeId.ChaosRepressor, SpawnReason.None);
-                Timing.CallDelayed(0.5f, () =>
-                {
-                    ev.Player.ClearInventory();
-                    ev.Player.Position = Config.InitialSpawnCoordinates;
-                    ev.Player.Broadcast(5, "Выброси то оружее которое хочешь получить\nЧёрная карта для 2 списка");
-                    ev.Player.IsGodModeEnabled = false;
-                });
-                Timing.CallDelayed(0.5f, () =>
-                {
-                    foreach (var item in Config.GunsList1)
-                    {
-                        ev.Player.AddItem(item);
-                    }
-                });
-            }
-            if (ev.Item.Type == ItemType.KeycardFacilityManager)
-            {
-                ev.Player.Role.Set(RoleTypeId.Tutorial, SpawnReason.None);
-                Timing.CallDelayed(0.5f, () =>
-                {
-                    ev.Player.ClearInventory();
-                    ev.Player.Position = Config.InitialSpawnCoordinates;
-                    ev.Player.Broadcast(5, "Выброси то оружее которое хочешь получить\nЧёрная карта для 2 списка");
-                    ev.Player.IsGodModeEnabled = false;
-                });
-                Timing.CallDelayed(0.5f, () =>
-                {
-                    foreach (var item in Config.GunsList1)
-                    {
-                        ev.Player.AddItem(item);
-                    }
-                });
-            }
-            if (ev.Item.Type == ItemType.KeycardGuard)
-            {
-                ev.Player.Role.Set(RoleTypeId.FacilityGuard, SpawnReason.None);
-                Timing.CallDelayed(0.5f, () =>
-                {
-                    ev.Player.ClearInventory();
-                    ev.Player.Position = Config.InitialSpawnCoordinates;
-                    ev.Player.Broadcast(5, "Выброси то оружее которое хочешь получить\nЧёрная карта для 2 списка");
-                    ev.Player.IsGodModeEnabled = false;
-                });
-                Timing.CallDelayed(0.5f, () =>
-                {
-                    foreach (var item in Config.GunsList1)
-                    {
-                        ev.Player.AddItem(item);
-                    }
-                });
-            }
-            if (ev.Item.Type == ItemType.KeycardJanitor)
-            {
-                ev.Player.Role.Set(RoleTypeId.ClassD, SpawnReason.None);
-                Timing.CallDelayed(0.5f, () =>
-                {
-                    ev.Player.ClearInventory();
-                    ev.Player.Position = Config.InitialSpawnCoordinates;
-                    ev.Player.Broadcast(5, "Выброси то оружее которое хочешь получить\nЧёрная карта для 2 списка");
-                    ev.Player.IsGodModeEnabled = false;
-                });
-
-                Timing.CallDelayed(0.5f, () =>
-                {
-                    foreach (var item in Config.GunsList1)
-                    {
-                        ev.Player.AddItem(item);
-                    }
-                });
-            }
-            if (ev.Item.Type == ItemType.KeycardO5)
-            {
                 Timing.CallDelayed(0.3f, () =>
                 {
                     ev.Player.ClearInventory();
-
+                    ev.Player.Position = Config.InitialSpawnCoordinates;
+                    ev.Player.ClearBroadcasts();
                 });
                 Timing.CallDelayed(0.5f, () =>
                 {
-                    foreach (var item in Config.GunsList2)
-                    {
-                        ev.Player.AddItem(item);
 
-                    }
+                    ev.Player.Broadcast(5, "Выброси то оружее которое хочешь получить\n Чёрная карта для 2 списка");
+                    ev.Player.IsGodModeEnabled = false;
                 });
-            }
-            //###########################################
-            //###########################################
-            //####               Пушки             ######
-            //###########################################
-            //###########################################
 
-            if (ev.Item.Type == ItemType.GunFRMG0)
-                Timing.CallDelayed(0.3f, () =>
+                Timing.CallDelayed(0.5f, () =>
                 {
-                    foreach (var item in Config.GunFRMG0)
+                    foreach (var item in Config.GunsList1)
                     {
                         ev.Player.AddItem(item);
-
                     }
-                    int randomIndex = Random.Next(Config.Dust2Random.Count);
-                    ev.Player.Position = Config.Dust2Random[randomIndex];
-                    restrictedPlayers.Add(ev.Player);
-                    ev.Player.ShowHint(Plugin.Instance.Config.HintMessage, 5f);
+
                 });
 
-                if (ev.Item.Type == ItemType.GunE11SR)
+            }  
+
+                if (ev.Item.Type == ItemType.KeycardFacilityManager)
+                {
+                    ev.Player.Role.Set(RoleTypeId.Tutorial, SpawnReason.None);
                     Timing.CallDelayed(0.3f, () =>
                     {
-                        foreach (var item in Config.GunE11SR)
-                        {
-                            ev.Player.AddItem(item);
-                            int randomIndex = Random.Next(Config.Dust2Random.Count);
-                            ev.Player.Position = Config.Dust2Random[randomIndex];
-                            restrictedPlayers.Add(ev.Player);
-                            ev.Player.ShowHint(Plugin.Instance.Config.HintMessage, 5f);
+                        ev.Player.ClearInventory();
+                        ev.Player.Position = Config.InitialSpawnCoordinates;
+                        ev.Player.ClearBroadcasts();
+                    });
+                    Timing.CallDelayed(0.5f, () =>
+                    {
 
-                        }
-
+                        ev.Player.Broadcast(5, "Выброси то оружее которое хочешь получить\n Чёрная карта для 2 списка");
+                        ev.Player.IsGodModeEnabled = false;
                     });
 
-                if (ev.Item.Type == ItemType.GunCrossvec)
-                    Timing.CallDelayed(0.3f, () =>
-                    {
-                        foreach (var item in Config.GunCrossvec)
-                        {
-                            ev.Player.AddItem(item);
-                            int randomIndex = Random.Next(Config.Dust2Random.Count);
-                            ev.Player.Position = Config.Dust2Random[randomIndex];
-                            restrictedPlayers.Add(ev.Player);
-                            ev.Player.ShowHint(Plugin.Instance.Config.HintMessage, 5f);
-
-                        }
-
-                    });
-
-                if (ev.Item.Type == ItemType.GunLogicer)
-                    Timing.CallDelayed(0.3f, () =>
-                    {
-                        foreach (var item in Config.GunLogicer)
-                        {
-                            ev.Player.AddItem(item);
-                            int randomIndex = Random.Next(Config.Dust2Random.Count);
-                            ev.Player.Position = Config.Dust2Random[randomIndex];
-                            restrictedPlayers.Add(ev.Player);
-                            ev.Player.ShowHint(Plugin.Instance.Config.HintMessage, 5f);
-
-                        }
-
-                    });
-            if (ev.Item.Type == ItemType.GunShotgun)
-                Timing.CallDelayed(0.3f, () =>
-                {
-                    foreach (var item in Config.GunShotgun)
-                    {
-                        ev.Player.AddItem(item);
-                    }
-                    int randomIndex = Random.Next(Config.Dust2Random.Count);
-                    ev.Player.Position = Config.Dust2Random[randomIndex];
-                    restrictedPlayers.Add(ev.Player);
-                    ev.Player.ShowHint(Plugin.Instance.Config.HintMessage, 5f);
-
-                });
-
-            if (ev.Item.Type == ItemType.GunAK)
-                Timing.CallDelayed(0.3f, () =>
-                {
-                    foreach (var item in Config.GunAK)
-                    {
-                        ev.Player.AddItem(item);
-                    }
-                    int randomIndex = Random.Next(Config.Dust2Random.Count);
-                    ev.Player.Position = Config.Dust2Random[randomIndex];
-                    restrictedPlayers.Add(ev.Player);
-                    ev.Player.ShowHint(Plugin.Instance.Config.HintMessage, 5f);
-
-                });
-
-            if (ev.Item.Type == ItemType.GunFSP9)
-                Timing.CallDelayed(0.3f, () =>
-                {
-                    foreach (var item in Config.GunFSP9)
-                    {
-                        ev.Player.AddItem(item);
-                    }
-                    int randomIndex = Random.Next(Config.Dust2Random.Count);
-                    ev.Player.Position = Config.Dust2Random[randomIndex];
-                    restrictedPlayers.Add(ev.Player);
-                    ev.Player.ShowHint(Plugin.Instance.Config.HintMessage, 5f);
-
-                });
-
-            if (ev.Item.Type == ItemType.GunA7)
-                Timing.CallDelayed(0.3f, () =>
-                {
-                    foreach (var item in Config.GunCom45)
-                    {
-                        ev.Player.AddItem(item);
-                    }
-                    int randomIndex = Random.Next(Config.Dust2Random.Count);
-                    ev.Player.Position = Config.Dust2Random[randomIndex];
-                    restrictedPlayers.Add(ev.Player);
-                    ev.Player.ShowHint(Plugin.Instance.Config.HintMessage, 5f);
-
-                });
-
-            if (ev.Item.Type == ItemType.GunCom45)
-                Timing.CallDelayed(0.3f, () =>
-                {
-                    foreach (var item in Config.GunCom45)
-                    {
-                        ev.Player.AddItem(item);
-                    }
-                    int randomIndex = Random.Next(Config.Dust2Random.Count);
-                    ev.Player.Position = Config.Dust2Random[randomIndex];
-                    restrictedPlayers.Add(ev.Player);
-                    ev.Player.ShowHint(Plugin.Instance.Config.HintMessage, 5f);
-
-                });
-
-            if (ev.Item.Type == ItemType.Jailbird)
-                Timing.CallDelayed(0.3f, () =>
-                {
-                    foreach (var item in Config.Jailbird)
-                    {
-                        ev.Player.AddItem(item);
-                    }
-                    int randomIndex = Random.Next(Config.Dust2Random.Count);
-                    ev.Player.Position = Config.Dust2Random[randomIndex];
-                    restrictedPlayers.Add(ev.Player);
-                    ev.Player.ShowHint(Plugin.Instance.Config.HintMessage, 5f);
-
-
-                });
-
-
-            if (activeCoroutines.TryGetValue(ev.Player, out var handle))
-                {
-                    Timing.KillCoroutines(handle);
-                    activeCoroutines.Remove(ev.Player);
+                     Timing.CallDelayed(0.5f, () =>
+                     {
+                       foreach (var item in Config.GunsList1)
+                     {
+                       ev.Player.AddItem(item);
+                      }
+                       });
                 }
+            
+
+                    if (ev.Item.Type == ItemType.KeycardGuard)
+                    {
+                        ev.Player.Role.Set(RoleTypeId.FacilityGuard, SpawnReason.None);
+                        Timing.CallDelayed(0.5f, () =>
+                        {
+                            ev.Player.ClearInventory();
+                            ev.Player.Position = Config.InitialSpawnCoordinates;
+                            ev.Player.Broadcast(5, "Выброси то оружее которое хочешь получить\nЧёрная карта для 2 списка");
+                            ev.Player.IsGodModeEnabled = false;
+                        });
+                        Timing.CallDelayed(0.5f, () =>
+                        {
+                            foreach (var item in Config.GunsList1)
+                            {
+                                ev.Player.AddItem(item);
+                            }
+                        });
+                    }
+
+                    if (ev.Item.Type == ItemType.KeycardJanitor)
+                    {
+                        ev.Player.Role.Set(RoleTypeId.ClassD, SpawnReason.None);
+                        Timing.CallDelayed(0.3f, () =>
+                        {
+                         ev.Player.ClearInventory();
+                         ev.Player.Position = Config.InitialSpawnCoordinates;
+                         ev.Player.ClearBroadcasts();
+                        });
+                         Timing.CallDelayed(0.5f, () =>
+                         {
+
+                           ev.Player.Broadcast(5, "Выброси то оружее которое хочешь получить\n Чёрная карта для 2 списка");
+                           ev.Player.IsGodModeEnabled = false;
+                         });
+
+                          Timing.CallDelayed(0.5f, () =>
+                          {
+                          foreach (var item in Config.GunsList1)
+                          {
+                           ev.Player.AddItem(item);
+                          }
+                          });
+                    }
+
+                    if (ev.Item.Type == ItemType.KeycardO5)
+                    {
+                        Timing.CallDelayed(0.3f, () =>
+                        {
+                            ev.Player.ClearInventory();
+
+                        });
+                        Timing.CallDelayed(0.5f, () =>
+                        {
+                            foreach (var item in Config.GunsList2)
+                            {
+                                ev.Player.AddItem(item);
+
+                            }
+                        });
+                    }
+                    //###########################################
+                    //###########################################
+                    //####               Пушки             ######
+                    //###########################################
+                    //###########################################
+
+                    if (ev.Item.Type == ItemType.GunFRMG0)
+                        Timing.CallDelayed(0.3f, () =>
+                        {
+                            foreach (var item in Config.GunFRMG0)
+                            {
+                                ev.Player.AddItem(item);
+
+                            }
+                            int randomIndex = Random.Next(Config.Dust2Random.Count);
+                            ev.Player.Position = Config.Dust2Random[randomIndex];
+                            restrictedPlayers.Add(ev.Player);
+                            ev.Player.ShowHint(Plugin.Instance.Config.HintMessage, 5f);
+                        });
+
+                    if (ev.Item.Type == ItemType.GunE11SR)
+                        Timing.CallDelayed(0.3f, () =>
+                        {
+                            foreach (var item in Config.GunE11SR)
+                            {
+                                ev.Player.AddItem(item);
+                                int randomIndex = Random.Next(Config.Dust2Random.Count);
+                                ev.Player.Position = Config.Dust2Random[randomIndex];
+                                restrictedPlayers.Add(ev.Player);
+                                ev.Player.ShowHint(Plugin.Instance.Config.HintMessage, 5f);
+
+                            }
+
+                        });
+
+                    if (ev.Item.Type == ItemType.GunCrossvec)
+                        Timing.CallDelayed(0.3f, () =>
+                        {
+                            foreach (var item in Config.GunCrossvec)
+                            {
+                                ev.Player.AddItem(item);
+                                int randomIndex = Random.Next(Config.Dust2Random.Count);
+                                ev.Player.Position = Config.Dust2Random[randomIndex];
+                                restrictedPlayers.Add(ev.Player);
+                                ev.Player.ShowHint(Plugin.Instance.Config.HintMessage, 5f);
+
+                            }
+
+                        });
+
+                    if (ev.Item.Type == ItemType.GunLogicer)
+                        Timing.CallDelayed(0.3f, () =>
+                        {
+                            foreach (var item in Config.GunLogicer)
+                            {
+                                ev.Player.AddItem(item);
+                                int randomIndex = Random.Next(Config.Dust2Random.Count);
+                                ev.Player.Position = Config.Dust2Random[randomIndex];
+                                restrictedPlayers.Add(ev.Player);
+                                ev.Player.ShowHint(Plugin.Instance.Config.HintMessage, 5f);
+
+                            }
+
+                        });
+                    if (ev.Item.Type == ItemType.GunShotgun)
+                        Timing.CallDelayed(0.3f, () =>
+                        {
+                            foreach (var item in Config.GunShotgun)
+                            {
+                                ev.Player.AddItem(item);
+                            }
+                            int randomIndex = Random.Next(Config.Dust2Random.Count);
+                            ev.Player.Position = Config.Dust2Random[randomIndex];
+                            restrictedPlayers.Add(ev.Player);
+                            ev.Player.ShowHint(Plugin.Instance.Config.HintMessage, 5f);
+
+                        });
+
+                    if (ev.Item.Type == ItemType.GunAK)
+                        Timing.CallDelayed(0.3f, () =>
+                         {
+                            foreach (var item in Config.GunAK)
+                            {
+                                ev.Player.AddItem(item);
+                            }
+                            int randomIndex = Random.Next(Config.Dust2Random.Count);
+                            ev.Player.Position = Config.Dust2Random[randomIndex];
+                            restrictedPlayers.Add(ev.Player);
+                            ev.Player.ShowHint(Plugin.Instance.Config.HintMessage, 5f);
+
+                        });
+
+                    if (ev.Item.Type == ItemType.GunFSP9)
+                        Timing.CallDelayed(0.3f, () =>
+                        {
+                            foreach (var item in Config.GunFSP9)
+                            {
+                                ev.Player.AddItem(item);
+                            }
+                            int randomIndex = Random.Next(Config.Dust2Random.Count);
+                            ev.Player.Position = Config.Dust2Random[randomIndex];
+                            restrictedPlayers.Add(ev.Player);
+                            ev.Player.ShowHint(Plugin.Instance.Config.HintMessage, 5f);
+
+                        });
+
+                    if (ev.Item.Type == ItemType.GunA7)
+                        Timing.CallDelayed(0.3f, () =>
+                        {
+                            foreach (var item in Config.GunCom45)
+                            {
+                                ev.Player.AddItem(item);
+                            }
+                            int randomIndex = Random.Next(Config.Dust2Random.Count);
+                            ev.Player.Position = Config.Dust2Random[randomIndex];
+                            restrictedPlayers.Add(ev.Player);
+                            ev.Player.ShowHint(Plugin.Instance.Config.HintMessage, 5f);
+
+                        });
+
+                    if (ev.Item.Type == ItemType.GunCom45)
+                        Timing.CallDelayed(0.3f, () =>
+                        {
+                            foreach (var item in Config.GunCom45)
+                            {
+                                ev.Player.AddItem(item);
+                            }
+                            int randomIndex = Random.Next(Config.Dust2Random.Count);
+                            ev.Player.Position = Config.Dust2Random[randomIndex];
+                            restrictedPlayers.Add(ev.Player);
+                            ev.Player.ShowHint(Plugin.Instance.Config.HintMessage, 5f);
+
+                        });
+
+                    if (ev.Item.Type == ItemType.Jailbird)
+                        Timing.CallDelayed(0.3f, () =>
+                        {
+                            foreach (var item in Config.Jailbird)
+                            {
+                                ev.Player.AddItem(item);
+                            }
+                            int randomIndex = Random.Next(Config.Dust2Random.Count);
+                            ev.Player.Position = Config.Dust2Random[randomIndex];
+                            restrictedPlayers.Add(ev.Player);
+                            ev.Player.ShowHint(Plugin.Instance.Config.HintMessage, 5f);
+
+
+                        });
+
+
+                    if (activeCoroutines.TryGetValue(ev.Player, out var handle))
+                    {
+                        Timing.KillCoroutines(handle);
+                        activeCoroutines.Remove(ev.Player);
+                    }
+
+                
             
         }
         
