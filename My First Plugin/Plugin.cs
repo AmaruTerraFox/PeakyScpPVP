@@ -30,6 +30,7 @@ namespace PeakySCPPVP
             Instance = this;
             Exiled.Events.Handlers.Player.Verified += new PlayerHandlers().OnPlayerVerified;
             Exiled.Events.Handlers.Player.DroppingItem += new PlayerHandlers().OnDroppingItem;
+            Exiled.Events.Handlers.Player.Died += new PlayerHandlers().OnPlayerDied;
             // Регистрируем кастомное оружие AWP
             CustomItem.RegisterItems();
 
@@ -45,6 +46,7 @@ namespace PeakySCPPVP
             Instance = null;
             Exiled.Events.Handlers.Player.Verified -= new PlayerHandlers().OnPlayerVerified;
             Exiled.Events.Handlers.Player.DroppingItem -= new PlayerHandlers().OnDroppingItem;
+            Exiled.Events.Handlers.Player.Died -= new PlayerHandlers().OnPlayerDied;
             CustomItem.UnregisterItems();
             Log.Info("Основной плагин PeakySCP PVP выключен!");
             base.OnDisabled();

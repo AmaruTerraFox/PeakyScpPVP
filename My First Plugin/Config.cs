@@ -37,7 +37,7 @@ public class Config : IConfig
             ItemType.KeycardScientist, // Учёнка
             ItemType.KeycardJanitor,//Д-класс
             ItemType.KeycardGuard,//Охраник пятёрочки
-            ItemType.KeycardFacilityManager//Обучение
+            ItemType.KeycardFacilityManager//Обучениессссс
 
        };
     public ItemType[] GunsList1 { get; set; } =
@@ -52,7 +52,7 @@ public class Config : IConfig
     };
     public ItemType[] GunsList2 { get; set; } =
         {
-     (ItemType)999,
+     (ItemType)100,
      ItemType.GunFSP9,
      ItemType.GunA7,
      ItemType.GunRevolver,
@@ -147,7 +147,7 @@ public class Config : IConfig
         };//калаш только обрезанный
     public ItemType[] AWP { get; set; } =
     {
-            (ItemType)999,
+            (ItemType)100,
             ItemType.Ammo556x45,
             ItemType.Ammo556x45,
             ItemType.Ammo556x45,
